@@ -1,34 +1,36 @@
 #include <stdio.h>
 
 int main() {
-    int num1, num2;
+    int num1, num2, cant1 = 0, cant2 = 0; // Definimos las variables a utilizar
+
+    // Pedimos al usuario que ingrese los dos números
     printf("Ingrese el primer numero: ");
     scanf("%d", &num1);
+
     printf("Ingrese el segundo numero: ");
     scanf("%d", &num2);
 
-    int cant_digitos_num1 = 0;
-    int cant_digitos_num2 = 0;
-
-    int temp = num1;
-    while(temp != 0) {
-        cant_digitos_num1++;
-        temp /= 10;
+    // Contamos la cantidad de dígitos de num1
+    while (num1 != 0) {
+        cant1++; // Aumentamos el contador de dígitos
+        num1 /= 10; // Dividimos el número por 10 para eliminar el último dígito
     }
 
-    temp = num2;
-    while(temp != 0) {
-        cant_digitos_num2++;
-        temp /= 10;
+    // Contamos la cantidad de dígitos de num2
+    while (num2 != 0) {
+        cant2++; // Aumentamos el contador de dígitos
+        num2 /= 10; // Dividimos el número por 10 para eliminar el último dígito
     }
 
-    if(cant_digitos_num1 > cant_digitos_num2) {
-        printf("El primer numero tiene mas digitos que el segundo.\n");
-    } else if(cant_digitos_num1 < cant_digitos_num2) {
+    // Comparamos las cantidades de dígitos y mostramos el resultado
+    if (cant1 > cant2) {
+        printf("El primer número tiene mas digitos que el segundo.\n");
+    } else if (cant2 > cant1) {
         printf("El segundo numero tiene mas digitos que el primero.\n");
     } else {
         printf("Ambos numeros tienen la misma cantidad de digitos.\n");
     }
 
-    return 0;
+    return 0; // Indicamos que el programa finalizó correctamente
 }
+
